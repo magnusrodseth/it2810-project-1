@@ -13,6 +13,22 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+h1,
+h2 {
+  overflow: hidden;
+}
+
+h1::after,
+h2::after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  padding: 0.25rem;
+  width: 5rem;
+  height: 100%;
+  border-bottom: 0.25rem solid var(--violet);
+}
+
 button {
   border-radius: 9999px;
   padding: 1rem 0.5rem;
@@ -38,8 +54,17 @@ button {
   margin: 1rem 0.5rem;
 }
 
+#artist-info {
+  text-align: center;
+  margin: 2rem;
+}
+
 /* Small */
 @media only screen and (min-width: 640px) and (max-width: 768px) {
+  #artist-info {
+    width: 70%;
+  }
+
   #gallery {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
@@ -50,11 +75,19 @@ button {
   #gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  #artist-info {
+    width: 60%;
+  }
 }
 
 /* Large */
 @media only screen and (min-width: 1024px) {
   #gallery {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  #artist-info {
+    width: 60%;
   }
 }
