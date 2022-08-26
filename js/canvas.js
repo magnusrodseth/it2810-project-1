@@ -3,6 +3,7 @@ const ORANGE_RGBA = "rgba(251, 146, 60, 0.7)";
 const RED_RGBA = "rgba(248, 113, 113, 0.7)";
 const YELLOW_RGBA = "rgba(250, 204, 21, 0.7)";
 const MAGENTA_RGBA = "rgba(232, 121, 249, 0.7)";
+const BLUE_RGBA = "rgba(56, 189, 248, 0.7)";
 
 /**
  * TODO: Docs
@@ -129,7 +130,38 @@ const draw = () => {
   window.requestAnimationFrame(draw);
 };
 
+const isInsideMagentaTriangle = (x, y) => {
+  // TODO
+};
+
+const isInsideRedCircle = (x, y) => {
+  // TODO
+};
+
+const handleOnMouseMove = (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+
+  const offsetX = $("#canvas").offset().left;
+  const offsetY = $("#canvas").offset().top;
+
+  const mouseX = parseInt(event.clientX - offsetX);
+  const mouseY = parseInt(event.clientY - offsetY);
+
+  const isInsideMagentaTriangle = isInsideMagentaTriangle(mouseX, mouseY);
+  const isInsideRedCircle = isInsideRedCircle(mouseX, mouseY);
+
+  if (isInsideMagentaTriangle) {
+    // Change color of triangle to BLUE_RGBA
+  } else if (isInsideRedCircle) {
+    // Scale red circle according to keyframe
+  }
+};
+
 const initialize = () => {
+  $("#canvas").mousemove((event) => {
+    handleOnMouseMove(event);
+  });
   window.requestAnimationFrame(draw);
 };
 
