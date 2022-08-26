@@ -37,4 +37,12 @@ $(document).ready(() => {
     $(".square.orange").removeClass("skew");
     $("#svg-parent").removeClass("move-around");
   });
+
+  $(".polygon.magenta").mouseover(() => {
+    $(".polygon.magenta").css("fill", "#34d399");
+  });
+
+  $(".polygon.magenta").mouseleave(() => {
+    $(".polygon.magenta").css("fill", "#e879f9");
+  });
 });

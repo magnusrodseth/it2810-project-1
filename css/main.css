@@ -38,6 +38,7 @@ button {
   padding: 1rem 0.5rem;
   background-color: var(--white);
   color: var(--dark-accent);
+  margin: 0.5rem;
 }
 
 #container {
@@ -72,14 +73,21 @@ button {
   height: 20rem;
 }
 
-#svg-piece {
+#svg-piece,
+#canvas-piece {
   position: relative;
 }
 
-#svg-parent {
+#svg-parent,
+#canvas {
   position: absolute;
   top: 0%;
   left: 0%;
+}
+
+#canvas {
+  width: 275px;
+  height: 150px;
 }
 
 /* sm+ */
