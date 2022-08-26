@@ -3,7 +3,7 @@ $(document).ready(() => {
   $("#docs-container").hide();
 
   $("#docs-button").click(() => {
-    // Toggle documentation container
+    // Toggle documentation
     if (!$("#docs-container").is(":visible")) {
       $("#docs-container").show();
       $("#docs-button").html("Skjul dokumentasjon");
@@ -13,19 +13,11 @@ $(document).ready(() => {
     }
   });
 
-  $(".polygon.magenta").mouseover(() => {
-    $(".polygon.magenta").css("fill", "#38bdf8");
-  });
-
-  $(".polygon.magenta").mouseleave(() => {
-    $(".polygon.magenta").css("fill", "#e879f9");
-  });
-
   $(".circle.red").mouseover(() => {
-    $(".circle.red").addClass("scale");
+    $(".circle.red").css("fill", "rgba(56, 189, 248, 0.7)");
   });
 
   $(".circle.red").mouseleave(() => {
-    $(".circle.red").removeClass("scale");
+    $(".circle.red").css("fill", "rgba(248, 113, 113, 0.7)");
   });
 });
