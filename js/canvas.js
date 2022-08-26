@@ -90,10 +90,24 @@ const renderMagentaTriangle = (ctx, w, h) => {
   );
 };
 
+/**
+ * TODO: Docs
+ * @param {*} ctx
+ * @param {number} w
+ * @param {number} h
+ */
+const rotate = (ctx, w, h) => {
+  const ratio = 525;
+  const centerX = w / 2;
+  const centerY = h / 2;
+
+  ctx.translate(centerX, centerY);
+  ctx.rotate(Math.PI / ratio);
+  ctx.translate(-centerX, -centerY);
+};
+
 const draw = () => {
   const canvas = $("#canvas")[0];
-  canvas.width = 320;
-  canvas.height = 320;
   const ctx = canvas.getContext("2d");
 
   const w = canvas.width;
@@ -102,9 +116,7 @@ const draw = () => {
   // Clear canvas on each iteration
   ctx.clearRect(0, 0, w, h);
 
-  const speedRatio = 720;
-  const degrees = 1;
-  ctx.rotate((degrees * Math.PI) / speedRatio);
+  rotate(ctx, w, h);
 
   renderGreenSquare(ctx, w, h);
   renderOrangeSquare(ctx, w, h);

@@ -1,5 +1,5 @@
 .rotate {
-  animation: rotate 8s infinite ease-in-out;
+  animation: rotate 8s infinite linear;
   transform-origin: center center;
 }
 
