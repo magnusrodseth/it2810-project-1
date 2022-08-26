@@ -31,7 +31,7 @@ const redCircle = {
   y: h * 0.5,
   radius: 20,
   color: RED_RGBA,
-  visited: false,
+  hasBeenVisited: false,
 };
 
 const yellowCircle = {
@@ -67,14 +67,6 @@ const square = (ctx, x, y, width, height, color) => {
   ctx.fill();
 };
 
-/**
- * TODO: Docs
- * @param {*} ctx
- * @param {number} x
- * @param {number} y
- * @param {number} radius
- * @param {string} color
- */
 const circle = (ctx, x, y, radius, color) => {
   ctx.beginPath();
   ctx.arc(x, y, radius, 0, 2 * Math.PI);
@@ -82,14 +74,6 @@ const circle = (ctx, x, y, radius, color) => {
   ctx.fill();
 };
 
-/**
- * TODO: Docs
- * @param {*} ctx
- * @param {{x0: number, y0: number}} coord0
- * @param {{x1: number, y1: number}} coord1
- * @param {{x2: number, y2: number}} coord2
- * @param {string} color
- */
 const triangle = (ctx, { x0, y0 }, { x1, y1 }, { x2, y2 }, color) => {
   ctx.beginPath();
   ctx.moveTo(x0, y0);
@@ -159,10 +143,10 @@ const renderMagentaTriangle = (ctx) => {
 };
 
 /**
- * TODO: Docs
- * @param {*} ctx
- * @param {number} w
- * @param {number} h
+ * Rotates the canvas. This is used in a eternal loop to make the canvas spin continuously.
+ * @param {*} ctx is the current canvas context
+ * @param {number} w is the width of the canvas
+ * @param {number} h is the height of the canvas
  */
 const rotate = (ctx, w, h) => {
   const ratio = 525;
@@ -174,6 +158,10 @@ const rotate = (ctx, w, h) => {
   ctx.translate(-centerX, -centerY);
 };
 
+/**
+ * Renders all shapes used in the canvas.
+ * @param {*} ctx is the current canvas context
+ */
 const renderShapes = (ctx) => {
   renderGreenSquare(ctx);
   renderOrangeSquare(ctx);
@@ -186,6 +174,10 @@ const clearCanvas = (ctx) => {
   ctx.clearRect(0, 0, w, h);
 };
 
+/**
+ * Draws the canvas each frame.
+ * The canvas is cleared, rotated and re-rendered every frame.
+ */
 const draw = () => {
   // Clear canvas on each iteration
   clearCanvas(ctx);
@@ -197,6 +189,13 @@ const draw = () => {
   window.requestAnimationFrame(draw);
 };
 
+/**
+ * Inspiration: http://www.java2s.com/example/javascript/canvas/adding-mouse-hover-animation-to-html5-canvas-drawings.html
+ *
+ * @param {*} mouseX is the x coordinate of the mouse
+ * @param {*} mouseY is the y coordinate of the mouse
+ * @returns a boolean indicating if the mouse is within the bounds of the red circle shape
+ */
 const isInsideRedCircle = (mouseX, mouseY) => {
   const dx = mouseX - redCircle.x;
   const dy = mouseY - redCircle.y;
@@ -205,10 +204,24 @@ const isInsideRedCircle = (mouseX, mouseY) => {
 };
 
 /**
- * TODO: Docs
+ * Updates the state of the red circle based on the mouse position.
+ *
+ * @param {*} ctx is the current canvas context
+ * @param {*} isInsideRedCircle is a boolean indicating if the mouse cooredinates is inside the red circle
+ * @param {*} targetColor is the color to change the red circle to
+ */
+const updateRedCircle = (ctx, isInsideRedCircle, targetColor) => {
+  clearCanvas(ctx);
+  redCircle.color = targetColor;
+  redCircle.hasBeenVisited = isInsideRedCircle;
+  renderShapes(ctx);
+};
+
+/**
+ * Handles logic related to the mouse move event.
  *
  * Inspiration: http://www.java2s.com/example/javascript/canvas/adding-mouse-hover-animation-to-html5-canvas-drawings.html
- * @param {*} event
+ * @param {*} event is the mouse event
  */
 const handleOnMouseMove = (event) => {
   event.preventDefault();
@@ -222,19 +235,10 @@ const handleOnMouseMove = (event) => {
 
   const insideRedCircle = isInsideRedCircle(mouseX, mouseY);
 
-  if (insideRedCircle && !redCircle.visited) {
-    clearCanvas(ctx);
-
-    // Update red circle with new color
-    redCircle.color = BLUE_RGBA;
-    redCircle.visited = insideRedCircle;
-
-    renderShapes(ctx);
-  } else if (!insideRedCircle && redCircle.visited) {
-    clearCanvas(ctx);
-    redCircle.color = RED_RGBA;
-    redCircle.visited = insideRedCircle;
-    renderShapes(ctx);
+  if (insideRedCircle && !redCircle.hasBeenVisited) {
+    updateRedCircle(ctx, insideRedCircle, BLUE_RGBA);
+  } else if (!insideRedCircle && redCircle.hasBeenVisited) {
+    updateRedCircle(ctx, insideRedCircle, RED_RGBA);
   }
 };
 
