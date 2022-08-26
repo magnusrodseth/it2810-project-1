@@ -13,36 +13,19 @@ $(document).ready(() => {
     }
   });
 
-  $("#svg-piece").mouseover(() => {
-    $(".square.green").addClass("rotate");
-    $(".circle.yellow").addClass("scale");
-    $(".polygon.magenta").addClass("flip");
-    $(".square.orange").addClass("skew");
-
-    // Add some variation to the red circle's animation
-    $(".circle.red").addClass("scale");
-    $(".circle.red").css({
-      "animation-direction": "reverse",
-      "animation-duration": "4s",
-    });
-
-    $("#svg-parent").addClass("move-around");
-  });
-
-  $("#svg-piece").mouseleave(() => {
-    $(".square.green").removeClass("rotate");
-    $(".circle.yellow").removeClass("scale");
-    $(".polygon.magenta").removeClass("flip");
-    $(".circle.red").removeClass("scale");
-    $(".square.orange").removeClass("skew");
-    $("#svg-parent").removeClass("move-around");
-  });
-
   $(".polygon.magenta").mouseover(() => {
-    $(".polygon.magenta").css("fill", "#34d399");
+    $(".polygon.magenta").css("fill", "#38bdf8");
   });
 
   $(".polygon.magenta").mouseleave(() => {
     $(".polygon.magenta").css("fill", "#e879f9");
+  });
+
+  $(".circle.red").mouseover(() => {
+    $(".circle.red").addClass("scale");
+  });
+
+  $(".circle.red").mouseleave(() => {
+    $(".circle.red").removeClass("scale");
   });
 });

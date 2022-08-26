@@ -41,6 +41,10 @@ button {
   margin: 0.5rem;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 #container {
   display: flex;
   flex-direction: column;
@@ -78,16 +82,9 @@ button {
   position: relative;
 }
 
-#svg-parent,
 #canvas {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-}
-
-#canvas {
-  width: 275px;
-  height: 150px;
+  width: 320px;
+  height: 320px;
 }
 
 /* sm+ */

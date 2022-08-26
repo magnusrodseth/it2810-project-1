@@ -1,3 +1,9 @@
+const GREEN_RGBA = "rgba(74, 222, 128, 0.7)";
+const ORANGE_RGBA = "rgba(251, 146, 60, 0.7)";
+const RED_RGBA = "rgba(248, 113, 113, 0.7)";
+const YELLOW_RGBA = "rgba(250, 204, 21, 0.7)";
+const MAGENTA_RGBA = "rgba(232, 121, 249, 0.7)";
+
 /**
  * TODO: Docs
  * @param {*} ctx
@@ -48,24 +54,24 @@ const triangle = (ctx, { x0, y0 }, { x1, y1 }, { x2, y2 }, color) => {
 };
 
 const renderGreenSquare = (ctx, w, h) => {
-  square(ctx, w * 0.3, h * 0.2, w * 0.15, h * 0.15, "#4ade80");
+  square(ctx, w * 0.3, h * 0.2, w * 0.15, h * 0.15, GREEN_RGBA);
 };
 
 const renderOrangeSquare = (ctx, w, h) => {
-  square(ctx, w * 0.2, h * 0.1, w * 0.3, h * 0.15, "#fb923c");
+  square(ctx, w * 0.2, h * 0.1, w * 0.3, h * 0.1, ORANGE_RGBA);
 };
 
 const renderRedCircle = (ctx, w, h) => {
-  circle(ctx, w * 0.45, h * 0.55, 20, "#f87171");
+  circle(ctx, w * 0.5, h * 0.5, 20, RED_RGBA);
 };
 
 const renderYellowCircle = (ctx, w, h) => {
-  circle(ctx, w * 0.5, h * 0.15, 15, "#facc15");
+  circle(ctx, w * 0.45, h * 0.15, 15, YELLOW_RGBA);
 };
 
 const renderMagentaTriangle = (ctx, w, h) => {
   const startX = w * 0.3;
-  const startY = h * 0.25;
+  const startY = h * 0.2;
   triangle(
     ctx,
     {
@@ -80,20 +86,41 @@ const renderMagentaTriangle = (ctx, w, h) => {
       x2: startX + 40,
       y2: startY + 80,
     },
-    "#e879f9"
+    MAGENTA_RGBA
   );
 };
 
-$(document).ready(() => {
+const draw = () => {
   const canvas = $("#canvas")[0];
+  canvas.width = 320;
+  canvas.height = 320;
   const ctx = canvas.getContext("2d");
 
   const w = canvas.width;
   const h = canvas.height;
+
+  // Clear canvas on each iteration
+  ctx.clearRect(0, 0, w, h);
+
+  const speedRatio = 720;
+  const degrees = 1;
+  ctx.rotate((degrees * Math.PI) / speedRatio);
 
   renderGreenSquare(ctx, w, h);
   renderOrangeSquare(ctx, w, h);
   renderRedCircle(ctx, w, h);
   renderYellowCircle(ctx, w, h);
   renderMagentaTriangle(ctx, w, h);
+
+  ctx.restore();
+
+  window.requestAnimationFrame(draw);
+};
+
+const initialize = () => {
+  window.requestAnimationFrame(draw);
+};
+
+$(document).ready(() => {
+  initialize();
 });

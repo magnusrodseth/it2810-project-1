@@ -1,5 +1,5 @@
 .rotate {
-  animation: rotate 3s infinite ease-in-out;
+  animation: rotate 8s infinite ease-in-out;
   transform-origin: center center;
 }
 
@@ -22,71 +22,9 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(0.2);
+    transform: scale(0.6);
   }
   100% {
     transform: scale(1);
-  }
-}
-
-.flip {
-  animation: flip 4s infinite linear;
-  transform-origin: center center;
-}
-
-@keyframes flip {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-.skew {
-  animation: skew 4s infinite ease-in-out;
-  transform-origin: center center;
-}
-
-@keyframes skew {
-  0% {
-    opacity: 0.7;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0.7;
-  }
-}
-
-.move-around {
-  animation: move-around 8s infinite ease-in-out;
-  transform-origin: center center;
-}
-
-@keyframes move-around {
-  0% {
-    top: 0%;
-    left: 0%;
-  }
-  25% {
-    top: 60%;
-    left: 0%;
-  }
-  50% {
-    top: 60%;
-    left: 50%;
-  }
-  75% {
-    top: 0%;
-    left: 50%;
-  }
-  100% {
-    top: 0%;
-    left: 0%;
   }
 }
