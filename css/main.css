@@ -1,6 +1,5 @@
 :root {
   --white: #dcd7ba;
-  --white-accent: #c8c093;
   --dark: #16161d;
   --dark-accent: #2a2a37;
   --gray: #f3f4f6;
@@ -37,7 +36,7 @@ p {
 button {
   border-radius: 9999px;
   padding: 1rem 0.5rem;
-  background-color: var(--white-accent);
+  background-color: var(--white);
   color: var(--dark-accent);
 }
 
@@ -71,6 +70,16 @@ button {
   background-color: var(--gray);
   width: 20rem;
   height: 20rem;
+}
+
+#svg-piece {
+  position: relative;
+}
+
+#svg-parent {
+  position: absolute;
+  top: 0%;
+  left: 0%;
 }
 
 /* sm+ */
