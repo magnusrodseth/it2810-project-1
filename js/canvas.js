@@ -149,7 +149,7 @@ const renderMagentaTriangle = (ctx) => {
  * @param {number} h is the height of the canvas
  */
 const rotate = (ctx, w, h) => {
-  const ratio = 525;
+  const ratio = 500;
   const centerX = w / 2;
   const centerY = h / 2;
 
@@ -230,8 +230,8 @@ const handleOnMouseMove = (event) => {
   const offsetX = $("#canvas").offset().left;
   const offsetY = $("#canvas").offset().top;
 
-  const mouseX = parseInt(event.clientX - offsetX);
-  const mouseY = parseInt(event.clientY - offsetY);
+  const mouseX = parseInt(event.pageX - offsetX);
+  const mouseY = parseInt(event.pageY - offsetY);
 
   const insideRedCircle = isInsideRedCircle(mouseX, mouseY);
 
