@@ -31,18 +31,23 @@ h2::after {
   border-bottom: 0.25rem solid var(--violet);
 }
 
-#piece-container{
-  margin: 0 auto;
-}
-
 p {
   letter-spacing: 0.01em;
   font-size: 1.1rem;
 }
 
+#artist-info {
+  text-align: center;
+  margin: 2rem;
+}
+
 #disclaimer {
   font-size: 1.2rem;
   font-weight: bold;
+}
+
+#piece-container {
+  margin: 0 auto;
 }
 
 button {
@@ -63,7 +68,7 @@ button:hover {
   cursor: pointer;
 }
 
-#container {
+.flex-col {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,10 +87,6 @@ button:hover {
   margin: 1rem 0.5rem;
 }
 
-#artist-info {
-  text-align: center;
-  margin: 2rem;
-}
 
 .piece {
   border: 0.25rem solid var(--dark-accent);
