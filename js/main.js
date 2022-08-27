@@ -13,11 +13,7 @@ $(document).ready(() => {
     }
   });
 
-  $(".circle.red").mouseover(() => {
-    $(".circle.red").css("fill", "rgba(56, 189, 248, 0.7)");
-  });
-
-  $(".circle.red").mouseleave(() => {
-    $(".circle.red").css("fill", "rgba(248, 113, 113, 0.7)");
+  $(".circle.red").click(() => {
+    $(".circle.red").toggleClass("toggle-circle-color");
   });
 });

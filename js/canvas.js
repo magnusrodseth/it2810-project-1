@@ -31,7 +31,7 @@ const redCircle = {
   y: h * 0.5,
   radius: 20,
   color: RED_RGBA,
-  hasBeenVisited: false,
+  hasBeenClicked: false,
 };
 
 const yellowCircle = {
@@ -201,23 +201,23 @@ const isInsideRedCircle = (mouseX, mouseY) => {
  * Updates the state of the red circle based on the mouse position.
  *
  * @param {*} ctx is the current canvas context
- * @param {*} isInsideRedCircle is a boolean indicating if the mouse cooredinates is inside the red circle
+ * @param {*} clicked is a boolean indicating if the mouse cooredinates is inside the red circle
  * @param {*} targetColor is the color to change the red circle to
  */
-const updateRedCircle = (ctx, isInsideRedCircle, targetColor) => {
+const updateRedCircle = (ctx, clicked, targetColor) => {
   clearCanvas(ctx);
   redCircle.color = targetColor;
-  redCircle.hasBeenVisited = isInsideRedCircle;
+  redCircle.hasBeenClicked = clicked;
   renderShapes(ctx);
 };
 
 /**
- * Handles logic related to the mouse move event.
+ * Handles logic related to the mouse click event.
  *
  * Inspiration: http://www.java2s.com/example/javascript/canvas/adding-mouse-hover-animation-to-html5-canvas-drawings.html
  * @param {*} event is the mouse event
  */
-const handleOnMouseMove = (event) => {
+const handleOnClick = (event) => {
   event.preventDefault();
   event.stopPropagation();
 
@@ -229,18 +229,18 @@ const handleOnMouseMove = (event) => {
 
   const insideRedCircle = isInsideRedCircle(mouseX, mouseY);
 
-  if (insideRedCircle && !redCircle.hasBeenVisited) {
-    updateRedCircle(ctx, insideRedCircle, BLUE_RGBA);
-  } else if (!insideRedCircle && redCircle.hasBeenVisited) {
-    updateRedCircle(ctx, insideRedCircle, RED_RGBA);
+  if (insideRedCircle && !redCircle.hasBeenClicked) {
+    updateRedCircle(ctx, true, BLUE_RGBA);
+  } else if (insideRedCircle && redCircle.hasBeenClicked) {
+    updateRedCircle(ctx, false, RED_RGBA);
   }
 };
 
 const initialize = () => {
   window.requestAnimationFrame(draw);
 
-  $("#canvas").mousemove((event) => {
-    handleOnMouseMove(event);
+  $("#canvas").click((event) => {
+    handleOnClick(event);
   });
 };
 

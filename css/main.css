@@ -4,8 +4,9 @@
   --dark-accent: #2a2a37;
   --gray: #f3f4f6;
   --violet: #957fb8;
-
   --piece-width: 260px;
+  --red-rgba: rgba(248, 113, 113, 0.7);
+  --blue-rgba: rgba(56, 189, 248, 0.7);
 }
 
 body {
@@ -87,7 +88,6 @@ button:hover {
   margin: 1rem 0.5rem;
 }
 
-
 .piece {
   border: 0.25rem solid var(--dark-accent);
   border-radius: 0.5rem;
@@ -105,6 +105,15 @@ button:hover {
 #canvas {
   width: var(--piece-width);
   height: var(--piece-width);
+}
+
+.toggle-circle-color {
+  fill: var(--red-rgba);
+}
+
+.toggle-circle-color:hover,
+.toggle-circle-color:active {
+  fill: var(--blue-rgba);
 }
 
 /* sm+ */
