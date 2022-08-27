@@ -107,10 +107,7 @@ button:hover {
   height: var(--piece-width);
 }
 
-.toggle-circle-color {
-  fill: var(--red-rgba);
-}
-
+.toggle-circle-color,
 .toggle-circle-color:hover,
 .toggle-circle-color:active {
   fill: var(--blue-rgba);
