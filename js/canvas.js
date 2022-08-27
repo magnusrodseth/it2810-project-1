@@ -51,15 +51,6 @@ const magentaTriangle = {
   color: MAGENTA_RGBA,
 };
 
-/**
- * TODO: Docs
- * @param {*} ctx
- * @param {number} x
- * @param {number} y
- * @param {number} width
- * @param {number} height
- * @param {string} color
- */
 const square = (ctx, x, y, width, height, color) => {
   ctx.beginPath();
   ctx.rect(x, y, width, height);
@@ -144,6 +135,7 @@ const renderMagentaTriangle = (ctx) => {
 
 /**
  * Rotates the canvas. This is used in a eternal loop to make the canvas spin continuously.
+ *
  * @param {*} ctx is the current canvas context
  * @param {number} w is the width of the canvas
  * @param {number} h is the height of the canvas
@@ -160,6 +152,7 @@ const rotate = (ctx, w, h) => {
 
 /**
  * Renders all shapes used in the canvas.
+ *
  * @param {*} ctx is the current canvas context
  */
 const renderShapes = (ctx) => {
@@ -176,6 +169,7 @@ const clearCanvas = (ctx) => {
 
 /**
  * Draws the canvas each frame.
+ *
  * The canvas is cleared, rotated and re-rendered every frame.
  */
 const draw = () => {
