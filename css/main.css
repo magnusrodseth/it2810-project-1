@@ -31,6 +31,10 @@ h2::after {
   border-bottom: 0.25rem solid var(--violet);
 }
 
+#piece-container{
+  margin: 0 auto;
+}
+
 p {
   letter-spacing: 0.01em;
   font-size: 1.1rem;
@@ -71,7 +75,7 @@ button:hover {
   margin: 0 0.5rem;
 }
 
-#gallery {
+.grid {
   display: grid;
   gap: 2rem 4rem;
   place-items: center;
@@ -108,14 +112,14 @@ button:hover {
     width: 70%;
   }
 
-  #gallery {
+  .grid {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
 
 /* md+ */
 @media only screen and (min-width: 768px) {
-  #gallery {
+  .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
