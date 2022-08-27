@@ -201,7 +201,7 @@ const isInsideRedCircle = (mouseX, mouseY) => {
  * Updates the state of the red circle based on the mouse position.
  *
  * @param {*} ctx is the current canvas context
- * @param {*} clicked is a boolean indicating if the mouse cooredinates is inside the red circle
+ * @param {*} clicked is a boolean indicating if the red circle has been clicked
  * @param {*} targetColor is the color to change the red circle to
  */
 const updateRedCircle = (ctx, clicked, targetColor) => {

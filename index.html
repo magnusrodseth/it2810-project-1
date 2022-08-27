@@ -73,26 +73,93 @@
     <button id="docs-button" class="smooth">Vis dokumentasjon</button>
 
     <div id="docs-container">
-      <h3>Bruk av CSS Flexbox og CSS Grid</h3>
-      <p>Ipsam nisi maiores dolorem culpa sint libero ut vero quas.</p>
+      <div>
+        <h3>Bruk av CSS Flexbox og CSS Grid</h3>
+        <p>Flexbox ble brukt til å sentrere alle elementer på siden, relativt til x-aksen. Grid ble brukt til å bestemme
+          hvordan de to bildene skal flyte. Ved små skjermer (opptil 768px) har "griddet" 1 kolonne. Ved medium skjermer
+          eller større (768px+) har "griddet" to kolonner.</p>
+        <p>De ovennevnte verdiene ble valgt basert på Google Chrome DevTools sine referanseverdier for størrelsen på
+          diverse enheter. Til sammen bidrar dette til et responsivt design.</p>
+      </div>
 
-      <h3>Bruk av SVG og Canvas</h3>
-      <p>Atque veritatis sequi ut ea ullam sunt autem.</p>
+      <div>
+        <h3>Bruk av SVG og Canvas</h3>
+        <p>Bildet til venstre er laget med hardkodede SVG-elementer og bildet til høyre er laget med HTML canvas og
+          dets API. Både figurene i SVG-bildet og figurene i canvas-bildet er plassert relativt til forelder-elementet,
+          og tar høyde for dynamisk endring av bredde eller høyde.</p>
+        <p>
+          Angående endring av oppførsel i den røde sirkelen ved brukerinteraksjon i SVG-bildet hentes det relevante
+          elementet som
+          skal endres ved å referere til klassenavnet, og deretter brukes jQuery til å veksle klassenavn ved klikk.
+          I canvas-bildet brukes jQuery til å hente canvas-elementet, og vanlig JavaScript for å kalkulere musepekerens
+          posisjon. Denne posisjonen brukes så til å sjekke om musen for øyeblikket er innenfor den røde sirkelen. Hvis
+          dette er tilfellet, endres fargen på sirkelen.
+        </p>
+      </div>
 
-      <h3>Bruk av jQuery</h3>
-      <p>Mollitia et explicabo.</p>
+      <div>
+        <h3>Bruk av jQuery</h3>
+        <p>jQuery brukes for å vise og skjule dokumentasjon, konkret ved bruk av <i>.show()</i> og <i>.hide()</i> på
+          relevante elementer.
+          Videre brukes jQuery til å veksle klassenavn på den røde sirkelen i SVG-bildet for å endre oppførsel.
+          I canvas-bildet brukes jQuery til å hente canvas-elementet, også regne ut canvas sitt "offset" slik at man
+          kan finne musepekerens posisjon.</p>
+      </div>
 
-      <h3>Utførelse av cross-browser testing</h3>
-      <p>Vel omnis ipsam accusantium laboriosam.</p>
+      <div>
+        <h3>Utførelse av cross-browser testing</h3>
+        <p>Nettsiden ble hovedsakelig utviklet ved bruk av Google Chrome og tilhørende DevTools. "Mobile View" ble brukt
+          for å sikre responsivt design fra små til store enheter. Dette ble validert i Firefox, Edge og Safari. Det ble
+          avdekket at størrelsen til canvas "fløt over" (<i>overflow</i>) i Edge, og dette ble rettet
+          opp.</p>
+        <p>Videre ble funksjonalitet angående brukerinteraksjon - med andre ord ved klikk på rød sirkel - testet. Her
+          var
+          det ingen store ulikheter mellom nettlesere, fordi klikk-funksjon støttes på både desktop og mobil, inkludert
+          med musepeker og med "touch mode" i DevTools.
+        </p>
+      </div>
 
-      <h3>Informasjonskilder</h3>
-      <ul>
-        <li>Ut vitae quae iusto.</li>
-        <li>...</li>
-      </ul>
+      <div>
+        <h3>Informasjonskilder</h3>
+        <ul>
+          <li><b>MDN Web Docs.</b> Dette har blitt brukt ved animasjon av canvas. Denne artikkelen
+            <a target="_blank"
+              href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_animations">
+              [les mer her]
+            </a>
+            var spesielt hjelpsom.
+          </li>
+          <li><b>W3 Schools.</b> Dette har hovedsakelig blitt brukt for å lære hvordan man lager SVGer
+            <sup>
+              [
+              <a href="https://www.w3schools.com/graphics/svg_rect.asp" target="_blank">1</a>,
+              <a href="https://www.w3schools.com/graphics/svg_circle.asp" target="_blank">2</a>,
+              <a href="https://www.w3schools.com/graphics/svg_polygon.asp" target="_blank">3</a>
+              ]
+            </sup>,
+            men også for å lære mer om
+            <a href="https://www.w3schools.com/css/css_rwd_mediaqueries.asp" target="_blank">"media queries"</a>.
+          </li>
+          <li><b>Stack Overflow.</b> Poster for å sjekke diverse syntax.</li>
+          <li><b>jQuery-dokumentasjon.</b><span> Konkret har
+              <a target="_blank" href="https://api.jquery.com/hide/"><i>.hide()</i></a>,
+              <a target="_blank" href="https://api.jquery.com/show/"><i>.show()</i></a> og
+              <a target="_blank" href="https://api.jquery.com/toggleclass/"><i>.toggleClass()</i></a>
+              vært nyttige under utvikling av siden.
+            </span></li>
+        </ul>
+      </div>
 
-      <h3>Kilder</h3>
-      <p>Pariatur sed aut pariatur enim quia quis.</p>
+      <div>
+        <h3>Kilder</h3>
+        <p>For å interagere med enkeltelementer i canvas må man finne musepekerens posisjon. Denne artikkelen <span>
+            <a href="http://www.java2s.com/example/javascript/canvas/adding-mouse-hover-animation-to-html5-canvas-drawings.html"
+              target="_blank">
+              [les mer her]
+            </a>
+          </span> var en god kilde å ta inspirasjon fra. Dette er også spesifisert i <i>JSDoc</i> i kodebasen hvor det
+          er relevant.</p>
+      </div>
     </div>
   </div>
 
