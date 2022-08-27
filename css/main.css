@@ -44,6 +44,8 @@ button {
   background-color: var(--gray);
   color: var(--dark-accent);
   margin: 0.5rem;
+  box-sizing: content-box;
+  min-width: 15rem;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 0.9rem;
@@ -78,7 +80,7 @@ button:hover {
 }
 
 .piece {
-  border: 1px solid var(--dark-accent);
+  border: 0.25rem solid var(--dark-accent);
   border-radius: 0.5rem;
   padding: 1rem;
   background-color: var(--gray);
