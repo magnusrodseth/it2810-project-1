@@ -134,7 +134,7 @@ const renderMagentaTriangle = (ctx) => {
 };
 
 /**
- * Rotates the canvas. This is used in a eternal loop to make the canvas spin continuously.
+ * Rotates the canvas. This is used in an eternal loop to make the canvas spin continuously.
  *
  * @param {*} ctx is the current canvas context
  * @param {number} w is the width of the canvas
