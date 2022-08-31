@@ -90,10 +90,19 @@
         <p>
           Angående endring av oppførsel i den røde sirkelen ved brukerinteraksjon i SVG-bildet hentes det relevante
           elementet som
-          skal endres ved å referere til klassenavnet, og deretter brukes jQuery til å veksle klassenavn ved klikk.
+          skal endres ved å referere til klassenavnet, og deretter brukes jQuery til å veksle klassenavn ved klikk. Når
+          klassenavnet veksles, aktiveres / deaktiveres en CSS klasse for å endre fargen på sirkelen.
+        </p>
+        <p>
           I canvas-bildet brukes jQuery til å hente canvas-elementet, og vanlig JavaScript for å kalkulere musepekerens
-          posisjon. Denne posisjonen brukes så til å sjekke om musen for øyeblikket er innenfor den røde sirkelen. Hvis
-          dette er tilfellet, endres fargen på sirkelen.
+          posisjon. Denne posisjonen brukes så til å sjekke om musen for øyeblikket er innenfor den røde sirkelen og om
+          brukeren klikker. Hvis dette er tilfellet, endres fargen på sirkelen.
+        </p>
+        <p>
+          Læringsutbyttet ved programmering av bildet i canvas har vært høyere enn i SVG-bildet, da "CSS keyframes"
+          opplevdes som veldig greit å jobbe med, mens canvas var mer utfordrende. Animering av canvas stiller stiller
+          krav til at man (1) visker ut canvas, (2) oppdaterer tilstanden, (3) "rerendrer" canvas og (4)
+          animerer på nytt.
         </p>
       </div>
 
@@ -116,7 +125,8 @@
         </p>
         <p>Videre ble funksjonalitet angående brukerinteraksjon - med andre ord ved klikk på rød sirkel - testet. Her
           var det ingen store ulikheter mellom nettlesere, fordi klikk-funksjon støttes på både desktop og mobil,
-          inkludert med musepeker og med "touch mode" i DevTools.
+          inkludert med musepeker og med "touch mode" i DevTools. Dette var et bevisst valg av utvikler, da
+          <i>mouseover</i> ikke er tilgjengelig på mobile enheter <b>med touch-modus i steden for musepeker</b>.
         </p>
       </div>
 
