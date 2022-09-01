@@ -80,13 +80,25 @@
           eller større (768px+) har "griddet" to kolonner.</p>
         <p>De ovennevnte verdiene ble valgt basert på Google Chrome DevTools sine referanseverdier for størrelsen på
           diverse enheter. Til sammen bidrar dette til et responsivt design.</p>
+        <p>
+          CSS Flexbox og CSS Grid løser problematikken rundt responsivt layout i webapplikasjoner ved å kontrollere
+          rader og kolonner, rekkefølgen på disse radene og kolonnene og hvordan de skal flyte på ulike
+          skjermstørrelser. Dette gjøres uten CSS- og JavaScript-triks som ellers kunne forårsaket feilaktig og
+          uforventet oppførsel.
+        </p>
       </div>
 
       <div>
         <h3>Bruk av SVG og Canvas</h3>
         <p>Bildet til venstre er laget med hardkodede SVG-elementer og bildet til høyre er laget med HTML canvas og
           dets API. Både figurene i SVG-bildet og figurene i canvas-bildet er plassert relativt til forelder-elementet,
-          og tar høyde for dynamisk endring av bredde eller høyde.</p>
+          og tar høyde for endring av bredde og høyde.</p>
+        <p>
+          Angående animasjon av bildene har jeg valgt å animere hele bildet, i motsetning til enkeltelementer. I
+          SVG-bildet er dette gjort med "CSS keyframes", CSS animation og transition. I canvas-bildet er dette gjort med
+          den innebygde metoden <i>ctx.rotate()</i>, sammen med <i>window.requestAnimationFrame(draw)</i> for å oppnå en
+          kontinuerlig rotasjon av canvas-bildet.
+        </p>
         <p>
           Angående endring av oppførsel i den røde sirkelen ved brukerinteraksjon i SVG-bildet hentes det relevante
           elementet som
@@ -108,11 +120,18 @@
 
       <div>
         <h3>Bruk av jQuery</h3>
-        <p>jQuery brukes for å vise og skjule dokumentasjon, konkret ved bruk av <i>.show()</i> og <i>.hide()</i> på
+        <p>
+          jQuery brukes for å vise og skjule dokumentasjon, konkret ved bruk av <i>.show()</i> og <i>.hide()</i> på
           relevante elementer.
           Videre brukes jQuery til å veksle klassenavn på den røde sirkelen i SVG-bildet for å endre oppførsel.
           I canvas-bildet brukes jQuery til å hente canvas-elementet, også regne ut canvas sitt "offset" slik at man
-          kan finne musepekerens posisjon.</p>
+          kan finne musepekerens posisjon.
+        </p>
+        <p>
+          Dette prosjektet har fremhevet at jQuery gjør det lettere å interagere med og manipulere DOM-elementer,
+          håndtere brukerinteraksjon og lage animasjoner enn hva vanlig JavaScript tilbyr. Alt dette får man med en mer
+          konsis syntax enn hva vanlig JavaScript tilbyr.
+        </p>
       </div>
 
       <div>
