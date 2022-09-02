@@ -141,6 +141,12 @@
           kan finne musepekerens posisjon.
         </p>
         <p>
+          For å skalere rektangelet brukes jQuery til å hente ut input-elementet med korrekt <i>id</i>. Derettes hentes
+          nåværende verdi ut, og brukes til å skalere figuren. I SVG-bildet brukes jQuery til å manipulere
+          CSS-attributtet <i>transform</i> på rektangelet. I canvas-bildet brukes vanlig JavaScript til å oppdatere
+          størrelsen til rektangelet.
+        </p>
+        <p>
           Dette prosjektet har fremhevet at jQuery gjør det lettere å interagere med og manipulere DOM-elementer,
           håndtere brukerinteraksjon og lage animasjoner enn hva vanlig JavaScript tilbyr. Alt dette får man med en mer
           konsis syntax enn hva vanlig JavaScript tilbyr.
@@ -149,13 +155,34 @@
 
       <div>
         <h3>Utførelse av cross-browser testing</h3>
-        <p>Nettsiden ble hovedsakelig utviklet ved bruk av Google Chrome og tilhørende DevTools. "Mobile View" ble brukt
+        <p>
+          Nettsiden ble hovedsakelig utviklet ved bruk av Google Chrome og tilhørende DevTools. "Mobile View" ble brukt
           for å sikre responsivt design fra små til store enheter. Dette ble validert i Firefox, Edge og Safari. Det ble
           avdekket at størrelsen til canvas "fløt over" (<i>overflow</i>) i Edge, og dette ble rettet
-          opp.</p>
-        <p>Det ble validert at alle nettlesere støtter klikk-funksjonen på knappen for å vise og skjule dokumentasjon.
+          opp.
         </p>
-        <p>Videre ble funksjonalitet angående brukerinteraksjon - med andre ord ved klikk på rød sirkel - testet. Her
+        <p>
+          Input-elementer som ikke er stylet ser forskjellige ut i de ulike nettleserne. Dette stilte krav til å manuelt
+          style input-element for å oppnå uniform styling på tvers av nettlesere. Se <i>input.css</i> for referanse til
+          hvordan dette ble implementert. Et par viktige ting er verdt å merke seg med denne stylingen:
+
+        <ul>
+          <li><b>Pseudo-elementer kan ikke kjedes sammen på tvers av nettleser-spesifikk styling.</b> Derfor må samme
+            styling repeteres for hvert pseudo-element. Dette resulterer i mindre konsis CSS-kode, men vurderes å være
+            viktig
+            nok for å opprettholde lik styling på tvers av nettlesere.</li>
+          <li><b>Firefox var vanskeligere å oppnå uniform styling enn andre nettlesere.</b> Konkret måtte
+            <i>input[type="range"]</i>
+            eksplisitt få bakgrunnsfarge, da Firefox i utgangspunktet gir input-elementer hvit bakgrunn.
+          </li>
+        </ul>
+        </p>
+        <p>
+          Det ble validert at alle nettlesere støtter klikk-funksjonen på knappen for å vise og skjule dokumentasjon.
+          Det ble også validert at alle testede nettlesere støtter "range"-funksjonalitet for å skalere rektangelet.
+        </p>
+        <p>
+          Videre ble funksjonalitet for klikk på rød sirkel testet. Her
           var det ingen store ulikheter mellom nettlesere, fordi klikk-funksjon støttes på både desktop og mobil,
           inkludert med musepeker og med "touch mode" i DevTools. Dette var et bevisst valg av utvikler, da
           <i>mouseover</i> ikke er tilgjengelig på mobile enheter <b>med touch-modus i steden for musepeker</b>.
@@ -171,6 +198,13 @@
               [les mer her]
             </a>
             var spesielt hjelpsom.
+          </li>
+          <li>
+            <b>CSS Tricks.</b> Konkret ble <a
+              href="https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/" target="_blank">denne
+              artikkelen</a> brukt for å oppnå lik styling av input-elementet på tvers av testede nettlesere. Merk at
+            inspirasjonen tatt herfra går på
+            hvilket pseudo-elementer som skal tas høyde for, og stylingen er min egen.
           </li>
           <li><b>W3 Schools.</b> Dette har hovedsakelig blitt brukt for å lære hvordan man lager SVGer
             <sup>
@@ -202,6 +236,12 @@
             </a>
           </span> var en god kilde å ta inspirasjon fra. Dette er også spesifisert i <i>JSDoc</i> i kodebasen hvor det
           er relevant.</p>
+        <p>
+          Som nevnt over brukte jeg en ekstern kilde for å finne ut hvilke pseudo-elementer som måtte tas høyde for ved
+          styling av <i>input[type="range"]</i>. Her ble <a
+            href="https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/" target="_blank">en artikkel
+            fra CSS Tricks</a> brukt.
+        </p>
       </div>
     </div>
   </div>
