@@ -215,14 +215,17 @@ const updateRedCircle = (ctx, clicked, targetColor) => {
 };
 
 /**
- *TODO: Docs
+ * Updates the state of the orange rectangle based on the input range.
+ *
+ * @param {*} ctx is the current canvas context
+ * @param {number} scale is the current scale
  */
 const updateOrangeSquare = (ctx, scale) => {
   clearCanvas(ctx);
   orangeSquare.width = DEFAULT_ORANGE_SQUARE_WIDTH * scale;
   orangeSquare.height = DEFAULT_ORANGE_SQUARE_HEIGHT * scale;
   renderShapes(ctx);
-}
+};
 
 /**
  * Handles logic related to the mouse click event.
@@ -259,8 +262,7 @@ const initialize = () => {
   $(document).on("input", "#canvas-range", () => {
     const scale = $("#canvas-range").val();
     updateOrangeSquare(ctx, scale);
-  })
-
+  });
 };
 
 $(document).ready(() => {
