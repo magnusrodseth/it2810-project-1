@@ -18,11 +18,14 @@ const greenSquare = {
   color: GREEN_RGBA,
 };
 
+const DEFAULT_ORANGE_SQUARE_WIDTH = w * 0.3;
+const DEFAULT_ORANGE_SQUARE_HEIGHT = h * 0.1;
+
 const orangeSquare = {
   x: w * 0.2,
   y: h * 0.1,
-  width: w * 0.3,
-  height: h * 0.1,
+  width: DEFAULT_ORANGE_SQUARE_WIDTH,
+  height: DEFAULT_ORANGE_SQUARE_HEIGHT,
   color: ORANGE_RGBA,
 };
 
@@ -212,6 +215,16 @@ const updateRedCircle = (ctx, clicked, targetColor) => {
 };
 
 /**
+ *TODO: Docs
+ */
+const updateOrangeSquare = (ctx, scale) => {
+  clearCanvas(ctx);
+  orangeSquare.width = DEFAULT_ORANGE_SQUARE_WIDTH * scale;
+  orangeSquare.height = DEFAULT_ORANGE_SQUARE_HEIGHT * scale;
+  renderShapes(ctx);
+}
+
+/**
  * Handles logic related to the mouse click event.
  *
  * Inspiration: http://www.java2s.com/example/javascript/canvas/adding-mouse-hover-animation-to-html5-canvas-drawings.html
@@ -242,6 +255,12 @@ const initialize = () => {
   $("#canvas").click((event) => {
     handleOnClick(event);
   });
+
+  $(document).on("input", "#canvas-range", () => {
+    const scale = $("#canvas-range").val();
+    updateOrangeSquare(ctx, scale);
+  })
+
 };
 
 $(document).ready(() => {

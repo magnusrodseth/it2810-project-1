@@ -16,4 +16,10 @@ $(document).ready(() => {
   $(".circle.red").click(() => {
     $(".circle.red").toggleClass("toggle-circle-color");
   });
+
+  $(document).on("input", "#svg-range", () => {
+    const value = $("#svg-range").val();
+    $(".square.orange").css("transform", `scale(${value})`);
+  })
+
 });

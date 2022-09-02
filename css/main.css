@@ -10,7 +10,7 @@
 }
 
 body {
-  background-color: var(--dark);
+  background-color: var(--dark-accent);
   color: var(--white);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -76,6 +76,12 @@ button:hover {
   align-items: center;
 }
 
+.flex-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #docs-container {
   display: none;
   margin: 0.5rem;
@@ -132,6 +138,21 @@ a:hover {
 .toggle-circle-color:hover,
 .toggle-circle-color:active {
   fill: var(--blue-rgba);
+}
+
+.range-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="range"]{
+  margin:0.7rem 0;
+}
+
+.range-bound {
+  margin: 0 0.5rem;
 }
 
 /* sm+ */

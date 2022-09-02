@@ -1,0 +1,76 @@
+/* Inpiration: https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/ */
+
+:root {
+  --white: #dcd7ba;
+  --dark: #16161d;
+  --dark-accent: #2a2a37;
+  --gray: #f3f4f6;
+  --violet: #957fb8;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 75%;
+  background: var(--dark-accent);
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 75%;
+  height: 0.3rem;
+  cursor: pointer;
+  background: var(--gray);
+}
+
+input[type=range]::-webkit-slider-thumb
+{
+  height: 1.2rem;
+  width: 1.2rem;
+  border-radius: 9999px;
+  background: var(--violet);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -0.45rem;
+}
+
+input[type=range]::-moz-range-track
+{
+  width: 90%;
+  height: 0.3rem;
+  cursor: pointer;
+  background-color: var(--gray);
+}
+
+input[type=range]::-moz-range-progress {
+  height: 0;
+}
+
+input[type=range]::-moz-range-thumb {
+  height: 1.2rem;
+  width: 1.2rem;
+  border-radius: 9999px;
+  background: var(--violet);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -0.45rem;
+}
+
+input[type=range]::-ms-track {
+  width: 75%;
+  height: 0.2rem;
+  cursor: pointer;
+  background: var(--gray);
+}
+
+input[type=range]::-ms-thumb {
+  height: 1.2rem;
+  width: 1.2rem;
+  border-radius: 9999px;
+  background: var(--violet);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -0.45rem;
+}

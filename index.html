@@ -8,6 +8,7 @@
   <title>Mine abstrakte bilder</title>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/keyframes.css">
+  <link rel="stylesheet" href="css/input.css">
   <link rel="shortcut icon" href="public/favicon.ico" type="image/x-icon">
 
   <!-- jQuery -->
@@ -27,13 +28,19 @@
         snurr ute på byen.
       </p>
       <p id="disclaimer">
-        Klikk på den røde sirkelen i bildene, og se den endre oppførsel!
+        Klikk på den røde sirkelen i bildene eller dra i "range"-slideren, og se figurene endre oppførsel!
       </p>
     </div>
 
     <div class="grid">
-      <div class="piece-container">
+      <div class="flex-col">
         <h3>SVG: "En behaglig reise"</h3>
+
+        <div class="flex-row">
+          <label class="range-bound">Min</label>
+          <input type="range" id="svg-range" min="0.2" value="1" max="1" step="0.1" />
+          <label class="range-bound">Max</label>
+        </div>
 
         <div class="piece" id="svg-piece">
           <svg width="100%" height="100%" id="svg-parent" class="rotate">
@@ -60,8 +67,14 @@
         </div>
       </div>
 
-      <div class="piece-container">
+      <div class="flex-col">
         <h3>Canvas: "Et betent forhold"</h3>
+
+        <div class="flex-row">
+          <label for="canvas-range" class="range-bound">Min</label>
+          <input type="range" id="canvas-range" min="0.2" value="1" max="1" step="0.1" />
+          <label class="range-bound">Max</label>
+        </div>
 
         <div class="piece" id="canvas-piece">
           <canvas id="canvas" width="260" height="260"></canvas>
