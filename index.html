@@ -28,7 +28,7 @@
         snurr ute på byen.
       </p>
       <p id="disclaimer">
-        Klikk på den røde sirkelen i bildene eller dra i "range"-slideren, og se figurene endre oppførsel!
+        Klikk på den røde sirkelen i bildene eller dra i slideren, og se figurene endre oppførsel!
       </p>
     </div>
 
@@ -116,9 +116,7 @@
           Angående endring av oppførsel i den røde sirkelen ved brukerinteraksjon i SVG-bildet hentes det relevante
           elementet som
           skal endres ved å referere til klassenavnet, og deretter brukes jQuery til å veksle klassenavn ved klikk. Når
-          klassenavnet veksles, aktiveres / deaktiveres en CSS klasse for å endre fargen på sirkelen.
-        </p>
-        <p>
+          klassenavnet veksles, aktiveres / deaktiveres en CSS-klasse for å endre fargen på sirkelen.
           I canvas-bildet brukes jQuery til å hente canvas-elementet, og vanlig JavaScript for å kalkulere musepekerens
           posisjon. Denne posisjonen brukes så til å sjekke om musen for øyeblikket er innenfor den røde sirkelen og om
           brukeren klikker. Hvis dette er tilfellet, endres fargen på sirkelen.
@@ -158,14 +156,15 @@
         <p>
           Nettsiden ble hovedsakelig utviklet ved bruk av Google Chrome og tilhørende DevTools. "Mobile View" ble brukt
           for å sikre responsivt design fra små til store enheter. Dette ble validert i Firefox, Edge og Safari. Det ble
-          avdekket at størrelsen til canvas "fløt over" (<i>overflow</i>) i Edge, og dette ble rettet
+          avdekket at størrelsen til canvas "fløt over" (<i>overflow</i>) på små enheter i Edge, og dette ble rettet
           opp.
         </p>
         <p>
-          Input-elementer som ikke er stylet ser forskjellige ut i de ulike nettleserne. Dette stilte krav til å manuelt
-          style input-element for å oppnå uniform styling på tvers av nettlesere. Se <i>input.css</i> for referanse til
+          Input-elementer av typen "range" som ikke er stylet ser forskjellige ut i de ulike nettleserne. Dette stilte
+          krav til å manuelt
+          style input-element for å oppnå uniform styling på tvers av nettlesere. Se <i>input.css</i> for implementasjon
+          av
           hvordan dette ble implementert. Et par viktige ting er verdt å merke seg med denne stylingen:
-
         <ul>
           <li><b>Pseudo-elementer kan ikke kjedes sammen på tvers av nettleser-spesifikk styling.</b> Derfor må samme
             styling repeteres for hvert pseudo-element. Dette resulterer i mindre konsis CSS-kode, men vurderes å være
@@ -180,19 +179,13 @@
         <p>
           Det ble validert at alle nettlesere støtter klikk-funksjonen på knappen for å vise og skjule dokumentasjon.
           Det ble også validert at alle testede nettlesere støtter "range"-funksjonalitet for å skalere rektangelet.
-        </p>
-        <p>
-          Videre ble funksjonalitet for klikk på rød sirkel testet. Her
-          var det ingen store ulikheter mellom nettlesere, fordi klikk-funksjon støttes på både desktop og mobil,
-          inkludert med musepeker og med "touch mode" i DevTools. Dette var et bevisst valg av utvikler, da
-          <i>mouseover</i> ikke er tilgjengelig på mobile enheter <b>med touch-modus i steden for musepeker</b>.
-        </p>
+          Videre ble funksjonalitet for klikk på rød sirkel validert i alle testede nettlesere.
       </div>
 
       <div>
         <h3>Informasjonskilder</h3>
         <ul>
-          <li><b>MDN Web Docs.</b> Dette har blitt brukt ved animasjon av canvas. Denne artikkelen
+          <li><b>MDN Web Docs.</b> Denne kilden har blitt brukt ved animasjon av canvas. Denne artikkelen
             <a target="_blank"
               href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_animations">
               [les mer her]
@@ -204,7 +197,7 @@
               href="https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/" target="_blank">denne
               artikkelen</a> brukt for å oppnå lik styling av input-elementet på tvers av testede nettlesere. Merk at
             inspirasjonen tatt herfra går på
-            hvilket pseudo-elementer som skal tas høyde for, og stylingen er min egen.
+            hvilke pseudo-elementer som skal tas høyde for, og stylingen er min egen.
           </li>
           <li><b>W3 Schools.</b> Dette har hovedsakelig blitt brukt for å lære hvordan man lager SVGer
             <sup>
